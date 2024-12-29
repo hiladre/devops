@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: rowy-template
+  namespace: app-namespace
+spec:
+  template:
+    spec:
+      containers:
+      - name: rowy
+        image: rowy:latest
+        env:
+        - name: JOB_ID
+          value: ""
+      restartPolicy: Never
+  backoffLimit: 1

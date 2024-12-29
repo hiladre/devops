@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: resty
+  namespace: app-namespace
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: resty
+  template:
+    metadata:
+      labels:
+        app: resty
+    spec:
+      containers:
+      - name: resty
+        image: resty:latest
+        ports:
+        - containerPort: 5000
